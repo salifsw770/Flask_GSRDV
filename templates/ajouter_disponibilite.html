@@ -1,0 +1,26 @@
+
+    {% extends "layout_med.html" %}
+
+{% block title %}
+    Page d'accueil medecin
+{% endblock %}
+{% block content %}
+    <div class="container">
+      <h1 class="text-center my-4">Ajouter une disponibilité</h1>
+      <form action="/ajouter" method="post">
+        <div class="mb-3">
+          <label for="date" class="form-label">Date</label>
+          <input type="date" class="form-control" id="date" name="date">
+        </div>
+        <div class="mb-3">
+          <label for="heure_debut" class="form-label">Heure de début</label>
+          <input type="time" class="form-control" id="heure_debut" name="hd">
+        </div>
+        <div class="mb-3">
+          <label for="heure_fin" class="form-label">Heure de fin</label>
+          <input type="time" class="form-control" id="heure_fin" name="hf">
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+      </form>
+    </div>
+    {% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layout_med.html" %}
+
+{% block title %}
+    Listes RDV
+{% endblock %}
+{% block content %}
+      
+        <h1>Listes RDV</h1>
+        {%if rdv%}
+      <table class="table table-success table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Heure</th>
+            <th scope="col">Nom et prenom Patient</th>
+            <th scope="col">Telephone</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        {% for renderv in rdv %}
+        <tbody>
+          <tr>
+            <td>{{renderv[0]}}</td>
+            <td>{{renderv[1]}}</td>
+            <td>{{renderv[2]}} {{renderv[3]}}</td>
+            <td>{{renderv[4]}}</td>
+            <td>{{renderv[5]}}</td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+      
+    {%endif%}
+
+    {% endblock %}
+     
+      

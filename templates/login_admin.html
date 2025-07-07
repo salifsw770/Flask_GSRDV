@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login Patient
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <h4>Connection Admin</h4>
+        <form action="/login_admin" method="post">
+          <div class="form-group">
+            <label for="nom">email:</label>
+            <input type="email" class="form-control" id="nom" name="email">
+          </div>
+          <div class="form-group">
+            <label for="password">Mot de passe:</label>
+            <input type="password" class="form-control" id="password" name="password">
+          </div>
+          <button type="submit" class="btn btn-primary">Se connecter</button>
+          <a href="/inscription_admin" class="btn btn-primary">S'inscrire</a>
+          {% if erreur %}
+          <div class="alert alert-danger">{{ erreur }}</div>
+          {% endif %}
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

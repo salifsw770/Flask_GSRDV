@@ -1,0 +1,30 @@
+{% extends "layout_p.html" %}
+
+{% block title %}
+    Page Chercher par nom
+{% endblock %}
+{% block content %}
+      <div class="container">
+        <div class="row justify-content-center mt-5">
+          <div class="col-lg-6">
+            <h4 class="text-center mb-5">Recherche de médecin</h4>
+            <form action="/chercher" method="post">
+                <label for="specialite" class="form-label">Nom:</label>
+                <input type="text" class="form-control" id="inputSpecialty"  placeholder="Entrez le nom du medecin" name="nom">
+                <br>
+                <label for="specialite" class="form-label">Prenom:</label>
+                <input type="text" class="form-control" id="inputSpecialty"  placeholder="Entrez le prenom du medecin" name="prenom">
+                {% if erreur%}
+                <p>{{erreur}}</p>
+                {%endif%}
+            </div>
+              </div>
+              <div class="d-grid gap-2 mt-4">
+                <button type="submit" class="btn btn-primary" style="width: 50%; margin-left: 280px;">Rechercher</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    {% endblock %}

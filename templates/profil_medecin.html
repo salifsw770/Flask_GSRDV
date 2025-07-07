@@ -1,0 +1,49 @@
+{% extends "layout_med.html" %}
+
+{% block title %}
+    Page Profil medecin
+{% endblock %}
+{% block content %}
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="{{ url_for('static', filename='image/accueil.jpg') }}" alt="Photo de profil" class="rounded-circle img-thumbnail">
+        </div>
+        <div class="col-md-8">
+          <h4><p>{{prenom}} {{name}}</p></h4>
+          <h5>Specialite:{{specialite}}</h5>
+          <p>Adresse : <span class="fw-bold">{{adresse}}</span></p>
+          <p>Téléphone : <span class="fw-bold">{{tel}}</span></p>
+          <p>Email : <span class="fw-bold">{{email}}</span></p>
+          <hr>
+          {% if d%}
+          <h1>Liste de disponibilite</h1>
+          <table class="table table-success table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Jour</th>
+                <th scope="col">Heure debut</th>
+                <th scope="col">Heure Fin</th>
+              </tr>
+            </thead>
+            {% for disponibilite in disponibilites %}
+            <tbody>
+              <tr>
+                <td>{{disponibilite[1]}}</td>
+                <td>{{disponibilite[2]}}</td>
+                <td>{{disponibilite[3]}}</td>
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+          
+          
+       
+        </div>
+        
+      </div>
+    </div>
+    {%endif%}
+    {% endblock %}
+
+    

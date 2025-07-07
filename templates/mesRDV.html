@@ -1,0 +1,31 @@
+
+{% extends "layout_p.html" %}
+
+{% block title %}
+    Mes RDV
+{% endblock %}
+{% block content %}
+      
+        <h1>Mes  RDV</h1>
+        {%if rdv%}
+        <table class="table table-success table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Heure</th>
+                <th scope="col">Nom et Prenom du Medecin</th>
+              </tr>
+            </thead>
+      {% for renderv in rdv %}
+      <tbody>
+        <tr>
+          <td>{{renderv[0]}}</td>
+          <td>{{renderv[1]}}</td>
+          <td>{{renderv[2]}} {{renderv[3]}}</td>
+        </tr>
+      </tbody>
+      {% endfor %}
+   
+    {%endif%}
+
+    {% endblock %}

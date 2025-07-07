@@ -1,0 +1,46 @@
+{% extends "layout_admin.html" %}
+
+{% block title %}
+    Listes des medecins
+{% endblock %}
+{% block content %}
+      
+        <h1>Listes Medecins</h1>
+        <br>
+        {%if medecins%}
+      <table class="table table-success table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Specialite</th>
+            <th scope="col">Adresse</th>
+            <th scope="col">Telephone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Sexe</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        {% for med in medecins %}
+        <tbody>
+          <tr>
+            <td>{{med[0]}}</td>
+            <td>{{med[1]}}</td>
+            <td>{{med[8]}}</td>
+            <td>{{med[2]}}</td>
+            <td>{{med[3]}}</td>
+            <td>{{med[4]}}</td>
+            <td>{{med[5]}}</td>
+            <td>{{med[7]}}</td>
+            <td>
+                <a href="/supprimer/{{med[0]}}" class="btn btn-primary" onclick="return confirm('Etes vous sur de vouloir supprimer ce medecin')">Supprimer</a>
+            </td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+      
+    {%endif%}
+
+    {% endblock %}

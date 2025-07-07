@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %} {% endblock %}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-jfOJl7tfu5mSZLwwfl1wDp+aC/gs/Ugd51J+BKWQr9x/8TcM+lzH0M42CtJcFtLmDCQ2+zYtOabvZ9fprD47+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/ccs.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg  bg-dark">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item" id="l1">
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Accueil</a>
+                    </li>
+                    <li class="nav-item" id="l1">
+                        <a class="nav-link" aria-current="page" href="{{ url_for('chercher') }}">chercher medecin</a>
+                    </li>
+                    <li class="nav-item" id="l1">
+                        <a class="nav-link" href="{{ url_for('rdv') }}">Mes RDV</a>
+                    </li>
+                    <li class="nav-item" id="l1" >
+                        <a class="nav-link" href="{{ url_for('deconnexion_patient') }}">Se decconecter</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% with messages= get_flashed_messages(with_categories=true)%}
+  {%endwith%}
+    
+        {% block content %} {% endblock %}
+<!--par spec-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+<!--prendre rdv-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+    <!-- Liens vers les fichiers JavaScript de Bootstrap 5 par nom -->  
+    </body>
+    </html>

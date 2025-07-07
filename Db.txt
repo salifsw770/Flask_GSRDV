@@ -1,0 +1,60 @@
+
+CREATE DATABASE gsrdv;
+use gsrdv;
+CREATE TABLE patient (
+  id_patient INT AUTO_INCREMENT PRIMARY KEY,
+  nom VARCHAR(255) NOT NULL,
+  prenom VARCHAR(255) NOT NULL,
+  adresse VARCHAR(255) NOT NULL,
+  num_tel VARCHAR(20) NOT NULL,
+  adresse_email VARCHAR(255) NOT NULL UNIQUE,
+  mot_de_passe VARCHAR(255) NOT NULL,
+  sexe VARCHAR(25) NOT NULL
+);
+-- Création de la table Medecin
+CREATE TABLE medecin (
+  id_medecin INT AUTO_INCREMENT PRIMARY KEY,
+  nom VARCHAR(255) NOT NULL,
+  specialite VARCHAR(255) NOT NULL,
+  adresse VARCHAR(255) NOT NULL,
+  num_tel VARCHAR(20) NOT NULL,
+  adresse_email VARCHAR(255) NOT NULL UNIQUE,
+  mot_de_passe  VARCHAR(255) NOT NULL,
+  sexe VARCHAR(25) NOT NULL,
+  prenom VARCHAR(255) NOT NULL,
+  photo VARCHAR(255) NOT NULL
+);
+
+-- Création de la table Disponibilite
+CREATE TABLE disponibilite (
+  id_dispo INT AUTO_INCREMENT PRIMARY KEY,
+  jour DATE NOT NULL,
+  heure_debut TIME NOT NULL,
+  heure_fin TIME NOT NULL,
+  id_medecin INT NOT NULL,
+  FOREIGN KEY (id_medecin) REFERENCES Medecin(id_medecin)
+);
+
+-- Création de la table Rendezvous
+CREATE TABLE rendezvous (
+  id_rendezvous INT AUTO_INCREMENT PRIMARY KEY,
+  jour DATE NOT NULL,
+  heure TIME NOT NULL,
+  id_patient INT NOT NULL,
+  id_medecin INT NOT NULL,
+  id_dispo INT NOT NULL,
+  FOREIGN KEY (id_patient) REFERENCES Patient(id_patient) ON DELETE CASCADE,
+  FOREIGN KEY (id_medecin) REFERENCES Medecin(id_medecin) ON DELETE CASCADE,
+  FOREIGN KEY (id_dispo) REFERENCES Disponibilite(id_dispo) ON DELETE CASCADE
+);
+
+CREATE TABLE admin (
+  id_patient INT AUTO_INCREMENT PRIMARY KEY,
+  nom VARCHAR(255) NOT NULL,
+  prenom VARCHAR(255) NOT NULL,
+  adresse_email VARCHAR(255) NOT NULL UNIQUE,
+  mot_de_passe VARCHAR(255) NOT NULL,
+);
+
+
+

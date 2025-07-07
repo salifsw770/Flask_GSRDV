@@ -1,0 +1,19 @@
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Page d'accueil
+{% endblock %}
+{% block content %}
+<div class="ben">
+<h4>Bienvnue!!
+    Prenez votre rendez vous medicales
+</h4>
+
+</div>
+<div id="image-container">
+    <img src="{{ url_for('static', filename='image/accueil.jpg') }}" alt="Mon image">
+  </div>
+  
+
+  {% endblock %}

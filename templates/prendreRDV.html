@@ -1,0 +1,26 @@
+{% extends "layout_p.html" %}
+
+{% block title %}
+    Mes RDV
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>Prise de rendez-vous</h1>
+            <form method="post" action="/prendreRDV">
+                <div class="form-group">
+                    <label for="datepicker">Date du rendez-vous :</label>
+                    <input type="date" class="form-control" id="datepicker" name="date">
+                </div>
+                <div class="form-group">
+                    <label for="datepicker">Heure du rendez-vous :</label>
+                    <input type="time" class="form-control" id="datepicker" name="heur">
+                </div>
+                <button type="submit" class="btn btn-primary">Prendre rendez-vous</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

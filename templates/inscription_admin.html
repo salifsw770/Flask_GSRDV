@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Inscription patient
+{% endblock %}
+{% block content %}
+ <div class="container-sm">
+  <h4 class="text-center mt-5">Inscription</h4>
+  <form action="/inscription_admin" method="post">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="nom" class="form-label">Nom</label>
+          <input type="text" name="nom" class="form-control" id="nom" minlength="3" placeholder="Entrez votre nom" required>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="prenom" class="form-label">Prénom</label>
+          <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Entrez votre prénom" required>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email"  name="email" class="form-control" id="email" placeholder="Entrez votre email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="motdepasse" class="form-label">Mot de passe</label>
+          <input type="password" name="passw" class="form-control" id="motdepasse" placeholder="Entrez votre mot de passe" required>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="confirmationmotdepasse" class="form-label">Confirmation de mot de passe</label>
+          <input type="password" class="form-control" name="confrm_pass1" id="confirmationmotdepasse" placeholder="Confirmez votre mot de passe" required>
+        </div>
+      </div>
+      {% if erreur %}
+      <p style="color: red;">{{erreur}}</p>
+      {%endif%}
+    </div>
+    <div class="d-grid gap-2 mt-4">
+      <button type="submit" class="btn btn-primary btn-lg" style="margin-bottom: 20px;" onclick="checkPasswordMatch()">S'inscrire</button>
+    </div>
+    <p id="mot_de_passe_erreur"></p>
+    
+  </form>
+</div>
+
+{% endblock %}

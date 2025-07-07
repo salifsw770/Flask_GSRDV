@@ -1,0 +1,30 @@
+
+   #image-container {
+  width: 50%;
+  height: 100%;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50%;
+}
+#image-container img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+li{
+  padding-right: 52px;
+}
+#l1{
+  padding-right: 150px;
+}
+    .ben{
+      margin-top: 50px;
+      margin-left: 50px;
+    
+    }
+   
+  

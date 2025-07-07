@@ -1,0 +1,48 @@
+{% extends "layout_p.html" %}
+
+{% block title %}
+    Page details medecin
+{% endblock %}
+{% block content %}
+{%if medecin%}
+        <div class="container my-5">
+          <div class="row">
+            <div class="col-md-4">
+              <img src="{{ url_for('static', filename='image/accueil.jpg') }}" alt="Photo de profil" class="rounded-circle img-thumbnail">
+            </div>
+        <div class="col-md-8">
+          <h4><p>{{medecin[1]}} {{medecin[8]}}</p></h4>
+          <h5>Specialite:{{medecin[2]}}</h5>
+          <p>Adresse : <span class="fw-bold">{{medecin[3]}}</span></p>
+          <p>Téléphone : <span class="fw-bold">{{medecin[4]}}</span></p>
+          <p>Email : <span class="fw-bold">{{medecin[5]}}</span></p>
+          {% if d%}
+          <a href="{{url_for('prendreRDV')}}">Prendre RDV</a>
+          <hr>
+          
+          <h1>Disponibilités du médecin</h1>
+          <table class="table table-success table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Jour</th>
+                <th scope="col">Heure debut</th>
+                <th scope="col">Heure Fin</th>
+              </tr>
+            </thead>
+            {% for disponibilite in dispo %}
+            <tbody>
+              <tr>
+                <td>{{disponibilite[1]}}</td>
+                <td>{{disponibilite[2]}}</td>
+                <td>{{disponibilite[3]}}</td>
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+    {%endif%}
+        </div>
+        
+      </div>
+    </div>
+    {%endif%}
+{% endblock %}
